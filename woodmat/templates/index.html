@@ -1,11 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Welcome</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+ {% block title %} 
+ Home - Woodmat 
+ {%endblock %}
+
+ {% block content%}
+<section class="hero position-relative text-center text-white">
+  <!-- Hero Image -->
+  <img src="{% static 'images/furnitures/hero.jpg' %}" class="img-fluid w-100" alt="Hero Image">
+
+  <!-- Overlay Text -->
+  <div class="hero-text position-absolute top-50 start-50 translate-middle">
+    <h1 class="display-4 fw-bold">Discover Unique Handcrafted Furniture & Art</h1>
+    <p class="lead my-3">
+      Bringing timeless woodcraft and artistry from talented artisans directly to your home.
+    </p>
+    <div class="mt-4">
+      <a href="{% url 'products' %}" class="btn btn-primary btn-lg me-2">Shop Now</a>
+      <a href="{% url 'artisan_profile' %}" class="btn  btn-info btn-lg " >Explore Artisans</a>
+    </div>
+  </div>
+</section>
+
+<section class="collections">
+  <h2>SHOP OUR COLLECTIONS</h2>
+  
+  <p>The importance of heritage, locality, and sustainability is the grounding vision for Kenyan People</p>
+
+  <div class="collection-images">
+    <div class="card" style="width: 18rem;">
+      <div class="card-img-container">
+        <img src="{% static 'images/furnitures/bedroom1.jpg' %}" alt="Bed">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Bed</h5>
+        <p class="card-text">5 by 6 bed. Made with fibre</p>
+        <a href="{% url 'artisan_profile' %}" class="btn btn-primary">Josh Beddings</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-img-container">
+        <img src="{% static 'images/furnitures/outdoor.jpg' %}" alt="hanging chair">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">hanging chair</h5>
+        <p class="card-text">Very comfy chair to rest</p>
+        <a href="{% url 'artisan_profile' %}" class="btn btn-primary">Josh Beddings</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-img-container">
+        <img src="{% static 'images/furnitures/dining1.jpg' %}" alt="Bed">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Dining set</h5>
+        <p class="card-text">Mahongany 14 inch table with 6 soft sponch chairs</p>
+        <a href="{% url 'artisan_profile' %}" class="btn btn-primary">Nick Furnitures</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-img-container">
+        <img src="{% static 'images/wood work/utensils.jpg' %}" alt="cultilaries">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Bed</h5>
+        <p class="card-text">5 by 6 bed. Made with fibre</p>
+        <a href="{% url 'artisan_profile' %}" class="btn btn-primary">Josh Beddings</a>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+
+{% endblock content %}

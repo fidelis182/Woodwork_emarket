@@ -17,5 +17,8 @@ def products(request):
 def product_detail(request):
   return render(request,'product_detail.html')
 
+def artisan_profile(request):
+  return render(request,'artisan_profile.html')
+
 
 

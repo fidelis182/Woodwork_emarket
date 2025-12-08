@@ -1,11 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <h1>Product</h1>
-  </body>
-</html>
+{% extends "base.html" %}
+{% load static %}
+
+ {% block title %} 
+ Home - Woodmat 
+ {%endblock %}
+
+ {% block content%}
+<header class="product-header">
+  <h5>Product</h5>
+  <div class="cart-icon">
+    <i class="bi bi-cart-plus"></i>
+    <span class="cart-element-count"></span>
+  </div>
+ </header>
+ <div class="cart">
+  <h2 class="cart-title">Your Cart</h2>
+  <div class="cart-content">
+    <div class="cart-box">
+      <img src="{% static 'images/furnitures/bedroom1.jpg' %}" class="cart-img" alt="">
+      <div class="cart-detail">
+        <h2 class="cart-product-title">6 by 6 king sized bed</h2>
+        <span class="cart-price">Ksh.45,000</span>
+        <div class="cart-quantity">
+        <button id="decreament">-</button>
+        <span class="number">1</span>
+        <button id="increament">+</button>
+        </div>
+      </div>
+      <i class="bi bi-trash cart-remove"></i>
+    </div>
+  </div>
+    <div class="total">
+      <div class="total-title">Total</div>
+      <div class="total-price">Ksh.0</div>
+    </div>
+    <button class="btn-buy">Buy Now</button>
+    <i class="bi bi-x"></i>
+ </div>
+
+
+
+
+ <section class="products">
+   <h1 class="section-title"> Shop Products</h1>
+   <div class="product-content ">
+    <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/furnitures/bedroom1.jpg' %}" alt="bed">
+      </div>
+      <h2 class="product-name">6 by 6 king sized bed</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 45,0000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/furnitures/dining4.jpg' %}" alt="bed">
+      </div>
+      <h2 class="product-name">Dining set</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 25,0000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/furnitures/table 1.jpg' %}" alt="table">
+      </div>
+      <h2 class="product-name">office table</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 15,0000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/wood work/sculpture 1.jpg' %}" alt="beads">
+      </div>
+      <h2 class="product-name">Maasai beads</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 3000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/furnitures/outdoor.jpg' %}" alt="swing">
+      </div>
+      <h2 class="product-name">hangig chair</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 65,0000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/wood work/curving 1.jpg' %}" alt="curving">
+      </div>
+      <h2 class="product-name">Curving</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 10,0000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/wood work/utensils.jpg' %}" alt="cultiolaries">
+      </div>
+      <h2 class="product-name">cultilaries</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 1000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+        <div class="product-box">
+      <div class="img-box">
+        <img src="{% static 'images/furnitures/office1.jpg' %}" alt="office set up">
+      </div>
+      <h2 class="product-name">Office set up</h2>
+      <div class="price-and-cart">
+        <span class="price">Ksh. 45,0000</span>
+        <i class="bi bi-bag"></i>
+      </div>
+
+    </div>
+   </div>
+ </section>
+
+{% endblock content %}
