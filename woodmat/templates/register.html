@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+
+ {% block title %} 
+ register - Woodmat 
+ {%endblock %}
+
+ {% block content%}
+
+
+
+<div class="container d-flex justify-content-center mt-5">
+  <div class="col-md-6">
+
+    <div class="card shadow-sm border-0 rounded-4">
+      <div class="card-body p-4">
+
+        <h3 class="text-center mb-4 fw-bold">Create an Account</h3>
+
+        <form method="POST" novalidate>
+          {% csrf_token %}
+
+          <!-- Username -->
+          <div class="mb-3">
+            <label for="{{ form.username.id_for_label }}" class="form-label fw-semibold">Username</label>
+            {{ form.username }}
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="{{ form.email.id_for_label }}" class="form-label fw-semibold">Email</label>
+            {{ form.email }}
+          </div>
+
+          <!-- Phone Number -->
+          <div class="mb-3">
+            <label for="{{ form.phone_no.id_for_label }}" class="form-label fw-semibold">Phone Number</label>
+            {{ form.phone_no }}
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+  <label for="id_password1" class="form-label fw-semibold">Password</label>
+  <input 
+      type="password" 
+      name="password1" 
+      id="id_password1" 
+      class="form-control" 
+      placeholder="Enter password">
+
+  <div id="password-rules" class="mt-2 p-2 bg-light rounded-3 border">
+    <ul class="list-unstyled mb-0 small">
+      <li id="rule-length" class="text-danger">❌ At least 8 characters</li>
+      <li id="rule-number" class="text-danger">❌ At least one number</li>
+      <li id="rule-uppercase" class="text-danger">❌ At least one uppercase letter</li>
+      <li id="rule-lowercase" class="text-danger">❌ At least one lowercase letter</li>
+      <li id="rule-special" class="text-danger">❌ At least one special character (!@#$%^&*)</li>
+    </ul>
+  </div>
+</div>
+
+
+          <!-- Confirm Password -->
+          <div class="mb-4">
+            <label for="{{ form.password2.id_for_label }}" class="form-label fw-semibold">Confirm Password</label>
+            <input 
+              type="password" 
+              name="{{ form.password2.name }}" 
+              id="{{ form.password2.id_for_label }}" 
+              class="form-control" 
+              placeholder="Confirm password"
+            >
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid mb-3">
+            <button class="btn btn-dark btn-lg fw-semibold rounded-3" type="submit">
+              <i class="bi bi-check-circle"></i> Sign Up
+            </button>
+          </div>
+
+          <p class="text-center mt-3">
+            <a href="{% url 'login' %}" class="text-decoration-none">
+              Already have an account?
+            </a>
+          </p>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="{% static 'js/password_rules.js' %}"></script>
+
+
+
+{% endblock content %}
