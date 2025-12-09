@@ -57,6 +57,13 @@
           <a class="nav-link" href="{% url 'products' %}">Products</a>
         </li>
 
+      <form class="d-flex">
+        <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark"> <i class="bi-cart-fill me-1"></i>
+          Cart
+          <span class="badge bg-dark text-white ms-1 round-pill">0</span></a>
+      </form>
+
+
         {% comment %} <li class="nav-item">
           <a class="nav-link" href="{% url 'product_detail' %}">Product Details</a>
         </li> {% endcomment %}
