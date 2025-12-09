@@ -158,9 +158,17 @@ background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3));/* Dark
 }
 
 
+.product-box .img-box{
+  position: relative;
+}
 .img-box img{
   width: 100%;
   transition: 0.5s;
+}
+.img-box .badge{
+  top:0.5rem; 
+  right:0rem; 
+  z-index:100;
 }
 .img-box:hover img{
   transform: scale(1.1);

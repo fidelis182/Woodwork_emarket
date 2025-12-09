@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Product
+from django.shortcuts import get_object_or_404, render
+from .models import Category, Product
 from .forms import LoginForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -15,8 +15,23 @@ def index(request):
   return render(request,'index.html')
 
 
-def categories(request):
-  return render(request,'categories.html')
+def category(request, foo):
+    # Replace hyphens back to spaces (for multi-word categories)
+    foo = foo.replace('-', ' ')
+
+    try:
+        category = Category.objects.get(name__iexact=foo)
+        products = Product.objects.filter(category=category)
+
+        return render(request, 'category.html', {
+            'products': products,
+            'category': category
+        })
+
+    except Category.DoesNotExist:
+        messages.error(request, "That category doesn't exist")
+        return redirect('home')
+
 
 def category_detail(request):
   return render(request,'category_detail.html')
@@ -25,14 +40,15 @@ def products(request):
     products = Product.objects.all()
     return render(request, 'products.html', {'products': products})
 
-def product_detail(request):
-  return render(request,'product_detail.html')
+def product_detail(request,pk):
+  product = get_object_or_404(Product, id=pk)
+  return render(request,'product_detail.html',{'product': product})
 
 def artisan_profile(request):
   return render(request,'artisan_profile.html')
 
 
-# Login here
+# Login here/
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST) # Or AuthenticationForm(request, data=request.POST)
@@ -48,6 +64,8 @@ def user_login(request):
     else:
         form = LoginForm() # Or AuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
+
 
 
 #  register here 
