@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Product
 from .forms import LoginForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -22,7 +22,8 @@ def category_detail(request):
   return render(request,'category_detail.html')
 
 def products(request):
-  return render(request,'products.html')
+    products = Product.objects.all()
+    return render(request, 'products.html', {'products': products})
 
 def product_detail(request):
   return render(request,'product_detail.html')

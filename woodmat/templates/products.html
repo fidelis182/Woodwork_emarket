@@ -41,23 +41,29 @@
 
 
 
- <section class="products">
-   <h1 class="section-title"> Shop Products</h1>
-   <div class="product-content ">
-    <div class="product-box">
-      <div class="img-box">
-        <img src="{% static 'images/furnitures/bedroom1.jpg' %}" alt="bed">
+<section class="products">
+  <h1 class="section-title">Shop Products</h1>
+  <div class="product-content">
+    {% for product in products %}
+      <div class="product-box">
+        <div class="img-box">
+          <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <h2 class="product-name">{{ product.name }}</h2>
+        <div class="price-and-cart">
+          <span class="price">Ksh. {{ product.price }}</span>
+          <i class="bi bi-bag"></i>
+        </div>
       </div>
-      <h2 class="product-name">6 by 6 king sized bed</h2>
-      <div class="price-and-cart">
-        <span class="price">Ksh. 45,0000</span>
-        <i class="bi bi-bag"></i>
-      </div>
+    {% empty %}
+      <p>No products available.</p>
+    {% endfor %}
+  </div>
+</section>
 
-    </div>
-        <div class="product-box">
+     {% comment %} <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/furnitures/dining4.jpg' %}" alt="bed">
+        <img src="{{product.image.url}}" alt="bed">
       </div>
       <h2 class="product-name">Dining set</h2>
       <div class="price-and-cart">
@@ -66,9 +72,9 @@
       </div>
 
     </div>
-        <div class="product-box">
+    <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/furnitures/table 1.jpg' %}" alt="table">
+        <img src="{{product.image.url}}" alt="table">
       </div>
       <h2 class="product-name">office table</h2>
       <div class="price-and-cart">
@@ -77,9 +83,9 @@
       </div>
 
     </div>
-        <div class="product-box">
+     <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/wood work/sculpture 1.jpg' %}" alt="beads">
+        <img src="{{product.image.url}}" alt="beads">
       </div>
       <h2 class="product-name">Maasai beads</h2>
       <div class="price-and-cart">
@@ -88,9 +94,9 @@
       </div>
 
     </div>
-        <div class="product-box">
+    <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/furnitures/outdoor.jpg' %}" alt="swing">
+        <img src="{{product.image.url}}" alt="swing">
       </div>
       <h2 class="product-name">hangig chair</h2>
       <div class="price-and-cart">
@@ -99,9 +105,9 @@
       </div>
 
     </div>
-        <div class="product-box">
+    <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/wood work/curving 1.jpg' %}" alt="curving">
+        <img src="{{product.image.url}}" alt="curving">
       </div>
       <h2 class="product-name">Curving</h2>
       <div class="price-and-cart">
@@ -110,9 +116,9 @@
       </div>
 
     </div>
-        <div class="product-box">
+    <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/wood work/utensils.jpg' %}" alt="cultiolaries">
+        <img src="{{product.image.url}}" alt="cultiolaries">
       </div>
       <h2 class="product-name">cultilaries</h2>
       <div class="price-and-cart">
@@ -121,9 +127,9 @@
       </div>
 
     </div>
-        <div class="product-box">
+    <div class="product-box">
       <div class="img-box">
-        <img src="{% static 'images/furnitures/office1.jpg' %}" alt="office set up">
+        <img src="{{product.image.url}}" alt="office set up">
       </div>
       <h2 class="product-name">Office set up</h2>
       <div class="price-and-cart">
@@ -131,8 +137,7 @@
         <i class="bi bi-bag"></i>
       </div>
 
-    </div>
-   </div>
- </section>
+    </div> {% endcomment %}
+
 
 {% endblock content %}
