@@ -64,6 +64,7 @@
             action:'post'
           },
           success:function(json){
+            alert(json.message);
            // console.log(json)
            document.getElementById('cart_quantity').textContent=json.qty
           },
