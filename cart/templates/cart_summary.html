@@ -6,23 +6,69 @@
  {%endblock %}
 
  {% block content%}
- <div class="cart justify-content-center">
-  <h2 class="cart-title text-align-center">Your Cart</h2>
-  <h5>View Your cart.....</h5>
-  <div class="cart-content">
-    <div class="cart-box">
-      <img src="{% static 'images/furnitures/bedroom1.jpg' %}" class="cart-img" alt="">
-      <div class="cart-detail">
-        <h2 class="cart-product-title">6 by 6 king sized bed</h2>
-        <span class="cart-price">Ksh.45,000</span>
-        <div class="cart-quantity">
-        <button id="decreament">-</button>
-        <span class="number">1</span>
-        <button id="increament">+</button>
-        </div> 
-      </div>
-      <i class="bi bi-trash cart-remove"></i>
+<div class="container">
+  <div class="p-4 my-4 text-center bg-warning bg-warning-subtle rounded shadow-sm" >
+    <h2 class="fw-bold mb-1">Shopping Cartt</h2>
+    <h5 class="fw-normal">View your cart…</h5>
+  </div>
+</div>
+
+  <div class="container">
+    {% if cart_products %}
+      {% for product in cart_products %}
+      <div class="card mb-3" >
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{product.image.url}}" class="img-fluid rounded-start" alt="...">
     </div>
+    <div class="col-md-8">
+      <div class="card-body align-center">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">{{product.description}}</p>
+        {%if product.is_sale%}
+           <span class="price"><strike>Ksh.{{ product.price }}</strike></span> <br>
+          <span class="price">
+            &nbsp;Ksh.{{ product.sale_price }}</span>
+            <br>ID:{{product.id}}
+        {% else %}
+            Ksh.{{ product.sale_price }}
+            <br>ID:{{product.id}}
+        {% endif %}
+        <br>
+        <br>
+                <div class="row ">
+          <div class="col-md-2">Quanity</div>
+          <div class="col-md-2">
+        <select class="form-select form-select-sm" id="qty-cart">
+          
+            {% for key, value in quantities.items %}
+    {% if key|stringformat:"s" == product_id|stringformat:"s" %}
+        <option selected>{{ value }}</option>
+    {% endif %}
+
+            {%endfor%}
+        
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+          </div>
+        </div>
+        <br><br>
+        <a href="{% url 'index'%}" class="btn btn-secondary">Home</a>
+      </div>
+    </div>
+  </div>
+</div> <br>
+
+      {%endfor%}
+    {%else%}
+    there is nothing in your cart please add cart_products
+    <br>
+    {% endif %}
+
   </div>
     <div class="total">
       <div class="total-title">Total</div>
